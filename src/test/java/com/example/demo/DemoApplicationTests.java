@@ -10,8 +10,8 @@ class DemoApplicationTests {
 
     @Test
     void shouldRunMainWithoutException() {
-        var randomPortNumber = "--server.port=0";
-        assertThatNoException().isThrownBy(() -> DemoApplication.main(new String[]{randomPortNumber}));
+        final var RANDOM_PORT_NUMBER = "--server.port=0";
+        assertThatNoException().isThrownBy(() -> DemoApplication.main(new String[]{RANDOM_PORT_NUMBER}));
     }
 
 }
