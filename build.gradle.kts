@@ -49,17 +49,11 @@ sourceSets {
 node {
     download.set(true)
     version.set("20.10.0")
-}
-
-tasks.register<NpmTask>("npmCi") {
-    args.set(
-        listOf(
-            "ci",
-        )
-    )
+    npmInstallCommand.set("ci")
 }
 
 tasks.register<NpxTask>("buildTailwind") {
+    dependsOn("npmInstall")
     command.set("tailwindcss")
     args.set(
         listOf(
@@ -69,9 +63,6 @@ tasks.register<NpxTask>("buildTailwind") {
             "./build/resources/main/static/css/application.css",
         )
     )
-    dependsOn("npmCi")
 }
 
-tasks.named("compileJava") {
-    dependsOn("buildTailwind")
-}
+tasks.getByName("compileJava").dependsOn("buildTailwind")
