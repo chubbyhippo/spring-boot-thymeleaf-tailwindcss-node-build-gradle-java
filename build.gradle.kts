@@ -53,6 +53,8 @@ node {
 }
 
 tasks.register<NpxTask>("buildTailwind") {
+    description = "Build tailwindcss"
+    group = "build"
     dependsOn("npmInstall")
     command.set("tailwindcss")
     args.set(
