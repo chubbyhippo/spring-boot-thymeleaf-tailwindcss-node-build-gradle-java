@@ -14,13 +14,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(RootController.class)
 class RootControllerTest {
 
-
-    @Autowired
-    private MockMvc mockMvc;
-
     @Test
     @DisplayName("Should return index page response")
-    void shouldReturnIndexPageResponse() throws Exception {
+    void shouldReturnIndexPageResponse(@Autowired MockMvc mockMvc) throws Exception {
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("index"));
