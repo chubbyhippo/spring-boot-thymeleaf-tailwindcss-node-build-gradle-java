@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.assertj.MockMvcTester;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -20,5 +21,16 @@ class RootControllerTest {
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("index"));
+    }
+
+    @Test
+    @DisplayName("should return index page using mock mvc tester")
+    void shouldReturnIndexPageUsingMockMvcTester(@Autowired MockMvcTester mockMvcTester) {
+        mockMvcTester.get()
+                .uri("/")
+                .assertThat()
+                .doesNotHaveFailed()
+                .hasStatusOk()
+                .hasViewName("index");
     }
 }
