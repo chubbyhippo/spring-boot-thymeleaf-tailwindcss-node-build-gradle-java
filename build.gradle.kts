@@ -3,9 +3,9 @@ import com.github.gradle.node.npm.task.NpxTask
 
 plugins {
     java
-    id("org.springframework.boot") version "3.2.1"
-    id("io.spring.dependency-management") version "1.1.4"
-    id("com.github.node-gradle.node") version "7.0.1"
+    id("org.springframework.boot") version "3.4.0"
+    id("io.spring.dependency-management") version "1.1.6"
+    id("com.github.node-gradle.node") version "7.1.0"
 }
 
 group = "com.example"
@@ -48,7 +48,7 @@ sourceSets {
 
 node {
     download.set(true)
-    version.set("20.11.0")
+    version.set("22.11.0")
     npmInstallCommand.set("ci")
 }
 
