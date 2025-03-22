@@ -1,4 +1,3 @@
-import com.github.gradle.node.npm.task.NpmTask
 import com.github.gradle.node.npm.task.NpxTask
 
 plugins {
@@ -48,7 +47,7 @@ sourceSets {
 
 node {
     download.set(true)
-    version.set("22.11.0")
+    version.set("22.14.0")
     npmInstallCommand.set("ci")
 }
 
