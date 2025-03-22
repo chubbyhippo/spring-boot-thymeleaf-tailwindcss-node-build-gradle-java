@@ -10,3 +10,7 @@ npx tailwindcss -i ./src/main/resources/static/css/application.css -o ./build/re
 ```shell
 npx npm-check-updates -u
 ```
+```shell
+npm install
+```
+
